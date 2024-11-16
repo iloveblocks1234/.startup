@@ -1,0 +1,11 @@
+#!/bin/bash
+
+a=15
+while [ $a -gt 0 ]; do
+  sed -i '$d' ~/.bashrc
+  a=$((a-1))
+done
+
+cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
+cd ..
+sudo rm -rf thing
