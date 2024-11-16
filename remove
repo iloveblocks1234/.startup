@@ -8,4 +8,4 @@ done
 
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
-sudo rm -rf thing
+sudo rm -rf .startupinfo
