@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo chmod +x main
+sudo chmod +x remove
+./main
