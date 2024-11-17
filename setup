@@ -23,13 +23,13 @@ function funcrun {
 }
 
 function funchelp {
-  echo "Usage: .startupinfo [OPTIONS]"
+  echo "Usage: startupinfo [OPTIONS]"
   echo "Options:"
-  echo "  -h, --help     Show this help message"
-  echo "  -v, --version  Show the version"
-  echo "  -r, --run      Run the script and show your info on startup"
-  echo "  -a, --halt     Halt the script and prevent it from running on startup"
-  echo "  -e, --remove   Remove this script and everything related to it"
+  echo "  -h, --help      Show this help message"
+  echo "  -v, --version   Show the version"
+  echo "  -r, --run       Run the script and show your info on startup"
+  echo "  -a, --halt      Halt the script and prevent it from running on startup"
+  echo "  -e, --remove    Remove this script and everything related to it"
 }
 
 while [[ "$#" -gt 0 ]]; do
