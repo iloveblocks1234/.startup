@@ -5,7 +5,7 @@
 <head>
     <style>
         .spaced-text {
-            line-height: 0.1; /* Adjust the line height as needed */
+            line-height: 0.1;
         }
     </style>
 </head>
