@@ -9,4 +9,5 @@ done
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
 sudo rm -rf /bin/startupinfo
+sudo rm -rf /usr/bin/startupinfo
 sudo rm -rf .startupinfo
