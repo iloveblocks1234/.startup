@@ -1,8 +1,6 @@
 #!/bin/bash
-
 {
 echo ''
-echo '# .startupinfo v1.2'
 echo 'i="$(whoami)@$(uname -n)"'
 echo 'length=${#i}'
 echo 'after=""'
