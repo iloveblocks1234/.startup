@@ -14,17 +14,17 @@ echo "  remove    Remove this script and everything related to it"
 if [[ $1 = "-e" ]]; then
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
-else [[ $1 = "-p" ]]; then
+elif [[ $1 = "-p" ]]; then
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./halt
-else [[ $1 = "-h" ]]; then
+elif [[ $1 = "-h" ]]; then
   echo "startupinfo [OPTIONS]"
   echo "options:"
   echo "  -h; help"
   echo "  -r; run     Run the script and show your info on startup"
   echo "  -p; halt    Halt the script and prevent it from running on startup"
   echo "  -e; remove  Remove this script and everything related to it"
-else [[ $1 = "-r" ]]; then
+elif [[ $1 = "-r" ]]; then
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./main
 fi
