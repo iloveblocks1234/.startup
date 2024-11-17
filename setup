@@ -1,17 +1,10 @@
 #!/bin/bash
 
-# Ensure main and remove scripts are executable
 sudo chmod +x main
 sudo chmod +x remove
-
-# Execute the main script
 ./main
-
-# Create and make the startupinfo.sh script in /bin executable
-sudo touch /bin/startupinfo.sh
-sudo chmod +x /bin/startupinfo.sh
-
-# Write the script content to /bin/startupinfo.sh with sudo
+sudo touch /bin/startupinfo
+sudo chmod +x /bin/startupinfo
 sudo bash -c 'cat <<EOF > /bin/startupinfo.sh
 #!/bin/bash
 
