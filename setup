@@ -1,5 +1,4 @@
 #!/bin/bash
-
 sudo chmod +x main
 sudo chmod +x halt
 sudo chmod +x remove
@@ -19,6 +18,5 @@ elif [ "\$command" = "run" ]; then
   ./main
 fi
 EOF
-
 sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo; sudo chmod +x /bin/startupinfo
 sudo mv /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo; sudo chmod +x /usr/bin/startupinfo
