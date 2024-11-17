@@ -6,6 +6,8 @@ sudo chmod +x remove
 touch /home/$(whoami)/.startupinfocommand
 sudo touch /bin/startupinfo
 sudo chmod +x /bin/startupinfo
+sudo touch /usr/bin/startupinfo
+sudo chmod +x /usr/bin/startupinfo
 {
 echo '#!/bin/bash'
 echo ''
@@ -15,4 +17,4 @@ echo '  cd /home/$(whoami)/.startupinfo'
 echo '  ./remove'
 } >> /home/$(whoami)/.startupinfocommand
 sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
-sudo mv /homr/$(whoami)/.startupinfocommand /usr/bin/startupinfo
+sudo mv /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
