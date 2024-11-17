@@ -6,7 +6,6 @@ sudo chmod +x remove
 touch /home/$(whoami)/.startupinfocommand
 cat <<EOF > /home/$(whoami)/.startupinfocommand
 #!/bin/bash
-
 function funcremove {
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
@@ -20,23 +19,22 @@ function funcrun {
   ./main
 }
 function funchelp {
-  echo "Usage: .startupinfo [OPTIONS]" 
-  echo "Options:" 
-  echo " -h, --help; Show this help message" 
-  echo " -v, --version; Show the version" 
-  echo " -r, --run; Runs the script and shows your info on startup"
-  echo " -h, --halt; Halts the script and doesn't execute it on startup"
-  echo " -e, --remove; Removes this script and everything related to it"
+  echo "Usage: .startupinfo [OPTIONS]"
+  echo "Options:"
+  echo "  -h, --help     Show this help message"
+  echo "  -v, --version  Show the version"
+  echo "  -r, --run      Run the script and show your info on startup"
+  echo "  -a, --halt     Halt the script and prevent it from running on startup"
+  echo "  -e, --remove   Remove this script and everything related to it"
 }
-
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -h|--help) funchelp; exit 0 ;;
         -v|--version) echo "v1.2"; exit 0 ;;
-        -r|--run) funcrun; exit 0;;
-        -h|--halt) funchalt; exit 0;;
-        -e|--remove) funcremove; exit 0;;
-        *) echo "Unknown option: $1" >&2; show_help; exit 1 ;;
+        -r|--run) funcrun; exit 0 ;;
+        -a|--halt) funchalt; exit 0 ;;
+        -e|--remove) funcremove; exit 0 ;;
+        *) echo "Unknown option: $1" >&2; funchelp; exit 1 ;;
     esac
     shift
 done
