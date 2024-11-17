@@ -22,23 +22,23 @@ if [ "\$command" = "halt" ]; then
 elif [ "\$command" = "run" ]; then
   if [ $a1 = 0 ]; then
     {
-      echo '# .startupinfo v1.2'
-      echo 'i="\$(whoami)@\$(uname -n)"'
-      echo 'length=\${#i}'
-      echo 'after=""'
-      echo 'clear'
-      echo 'echo \$i'
-      echo 'while [ \$length -gt 0 ]; do'
-      echo '  after+=-'
-      echo '  length=\$((length-1))'
-      echo 'done'
-      echo 'echo \$after'
-      echo 'echo "OS:             \$(uname -o)"'
-      echo 'echo "Processor:      \$(uname -p)"'
-      echo 'echo "Hardware Info:  \$(uname -m)"'
-      echo 'echo "Kernel Name:    \$(uname)"'
-      echo 'echo "Kernel Version: \$(uname -v)"'
-      echo 'echo "Kernel Release: \$(uname -r)"'
+      echo $(# .startupinfo v1.2)
+      echo $(i="\$(whoami)@\$(uname -n))
+      echo $(length=\${#i})
+      echo $(after="")
+      echo $(clear)
+      echo $(echo \$i)
+      echo $(while [ \$length -gt 0 ]; do)
+      echo $(  after+=-)
+      echo $(  length=\$((length-1)))
+      echo $(done)
+      echo $(echo \$after)
+      echo $(echo "OS:             \$(uname -o)")
+      echo $(echo "Processor:      \$(uname -p)")
+      echo $(echo "Hardware Info:  \$(uname -m)")
+      echo $(echo "Kernel Name:    \$(uname)")
+      echo $(echo "Kernel Version: \$(uname -v)")
+      echo $(echo "Kernel Release: \$(uname -r)")
     } >> ~/.bashrc
     a1=1
   fi
