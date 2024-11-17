@@ -6,18 +6,22 @@ sudo chmod +x remove
 touch /home/$(whoami)/.startupinfocommand
 cat <<EOF > /home/$(whoami)/.startupinfocommand
 #!/bin/bash
+
 function funcremove {
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
 }
+
 function funchalt {
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./halt
 }
+
 function funcrun {
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./main
 }
+
 function funchelp {
   echo "Usage: .startupinfo [OPTIONS]"
   echo "Options:"
@@ -27,6 +31,7 @@ function funchelp {
   echo "  -a, --halt     Halt the script and prevent it from running on startup"
   echo "  -e, --remove   Remove this script and everything related to it"
 }
+
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -h|--help) funchelp; exit 0 ;;
@@ -38,6 +43,7 @@ while [[ "$#" -gt 0 ]]; do
     esac
     shift
 done
+
 EOF
 sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
 sudo chmod +x /bin/startupinfo
