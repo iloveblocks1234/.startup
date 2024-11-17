@@ -33,13 +33,32 @@ function funchelp {
 }
 
 while [[ "$#" -gt 0 ]]; do
-    case $1 in
-        -h|--help) funchelp; exit 0 ;;
-        -v|--version) echo "v1.2"; exit 0 ;;
-        -r|--run) funcrun; exit 0 ;;
-        -a|--halt) funchalt; exit 0 ;;
-        -e|--remove) funcremove; exit 0 ;;
-        *) echo "Unknown option: $1" >&2; funchelp; exit 1 ;;
+    case "$1" in
+        -h|--help)
+            funchelp
+            exit 0
+            ;;
+        -v|--version)
+            echo "v1.2"
+            exit 0
+            ;;
+        -r|--run)
+            funcrun
+            exit 0
+            ;;
+        -a|--halt)
+            funchalt
+            exit 0
+            ;;
+        -e|--remove)
+            funcremove
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            funchelp
+            exit 1
+            ;;
     esac
     shift
 done
