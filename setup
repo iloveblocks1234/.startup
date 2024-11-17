@@ -23,7 +23,7 @@ if [ "\$command" = "remove" ]; then
 elif [ "\$command" = "halt" ]; then
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./halt
-elif [ "\$command" = "run"]; then
+elif [ "\$command" = "run" ]; then
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./main
 fi
