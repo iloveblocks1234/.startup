@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo chmod +x main
+sudo chmod +x halt
 sudo chmod +x remove
 
 ./main
@@ -19,6 +20,12 @@ read -p "Command: " command
 if [ "\$command" = "remove" ]; then
   cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
+elif [ "\$command" = "halt" ]; then
+  cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
+  ./halt
+elif [ "\$command" = "run"]; then
+  cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
+  ./main
 fi
 EOF
 
