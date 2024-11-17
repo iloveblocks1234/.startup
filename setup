@@ -17,10 +17,12 @@ cat <<EOF > /home/$(whoami)/.startupinfocommand
 
 read -p "Command: " command
 if [ "\$command" = "remove" ]; then
-  cd /home/$(whoami)/.startupinfo
+  cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
 fi
 EOF
 
-sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
+sudo cp /home/$(whoami)/.startupinfocommand /binu/startupinfo
 sudo mv /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
+sudo chmod +x /usr/bin/startupinfo
+sudo chmod +x /bin/startupinfo
