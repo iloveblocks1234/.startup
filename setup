@@ -14,4 +14,5 @@ echo 'if [ $command="remove" ]; then'
 echo '  cd /home/$(whoami)/.startupinfo'
 echo '  ./remove'
 } >> /home/$(whoami)/.startupinfocommand
-sudo mv /home/$(whoami)/.startupinfocommand /bin/startupinfo
+sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
+sudo mv /homr/$(whoami)/.startupinfocommand /usr/bin/startupinfo
