@@ -3,3 +3,15 @@
 sudo chmod +x main
 sudo chmod +x remove
 ./main
+touch /home/$(whoami)/.startupinfocommand
+sudo touch /bin/startupinfo
+sudo chmod +x /bin/startupinfo
+{
+echo '#!/bin/bash'
+echo ''
+echo 'read -p "Command: " command'
+echo 'if [ $command="remove" ]; then'
+echo '  cd /home/$(whoami)/.startupinfo'
+echo '  ./remove'
+} >> /home/$(whoami)/.startupinfocommand
+sudo mv /home/$(whoami)/.startupinfocommand /bin/startupinfo
