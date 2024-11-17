@@ -2,19 +2,25 @@
 
 sudo chmod +x main
 sudo chmod +x remove
+
 ./main
-touch /home/$(whoami)/.startupinfocommand
+
 sudo touch /bin/startupinfo
 sudo chmod +x /bin/startupinfo
 sudo touch /usr/bin/startupinfo
 sudo chmod +x /usr/bin/startupinfo
-{
-echo '#!/bin/bash'
-echo ''
-echo 'read -p "Command: " command'
-echo 'if [ $command="remove" ]; then'
-echo '  cd /home/$(whoami)/.startupinfo'
-echo '  ./remove'
-} >> /home/$(whoami)/.startupinfocommand
+
+touch /home/$(whoami)/.startupinfocommand
+
+cat <<EOF > /home/$(whoami)/.startupinfocommand
+#!/bin/bash
+
+read -p "Command: " command
+if [ "\$command" = "remove" ]; then
+  cd /home/$(whoami)/.startupinfo
+  ./remove
+fi
+EOF
+
 sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
 sudo mv /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
