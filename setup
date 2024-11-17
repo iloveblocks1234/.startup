@@ -5,7 +5,7 @@ sudo chmod +x remove
 ./main
 sudo touch /bin/startupinfo.sh
 sudo chmod +x /bin/startupinfo.sh
-{
+sudo {
 echo '#!/bin/bash'
 echo ''
 echo 'read -p "Command: " command'
