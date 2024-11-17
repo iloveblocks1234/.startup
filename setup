@@ -1,5 +1,36 @@
 #!/bin/bash
-
 sudo chmod +x main
 sudo chmod +x remove
 ./main
+sudo touch /bin/startupinfo.sh
+sudo chmod +x /bin/startupinfo.sh
+sudo bash -c 'cat <<EOF > /bin/startupinfo.sh
+#!/bin/bash
+
+read -p "Command: " command
+if [ "\$command" = "halt" ]; then
+  a=15
+  while [ \$a -gt 0 ]; do
+    sed -i "$ d" ~/.bashrc
+    a=\$((a-1))
+  done
+elif [ "\$command" = "run" ]; then
+  # .startupinfo v1.2
+  i="\$(whoami)@\$(uname -n)"
+  length=\${#i}
+  after=""
+  clear
+  echo \$i
+  while [ \$length -gt 0 ]; do
+    after+=-
+    length=\$((length-1))
+  done
+  echo \$after
+  echo "OS:             \$(uname -o)"
+  echo "Processor:      \$(uname -p)"
+  echo "Hardware Info:  \$(uname -m)"
+  echo "Kernel Name:    \$(uname)"
+  echo "Kernel Version: \$(uname -v)"
+  echo "Kernel Release: \$(uname -r)"
+fi
+EOF'
