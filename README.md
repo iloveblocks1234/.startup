@@ -6,7 +6,7 @@
 <p>3. cd /home/$(whoami)/.startupinfo</p>
 <p>4. sudo chmod +x setup; ./setup</p>
 <br>
-<p>This will automatically be started</p>
-<p>To use, enter (startupinfo) and then (run)</p>
-<p>To pause, enter (startupinfo) and then (halt)</p>
+<p>This will not be automatically be started</p>
+<p>To enable, enter (startupinfo) and then (run)</p>
+<p>To disable, enter (startupinfo) and then (halt)</p>
 <p>To remove, enter (startupinfo) and then (remove)</p>
