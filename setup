@@ -2,8 +2,7 @@
 sudo chmod +x main
 sudo chmod +x halt
 sudo chmod +x remove
-./main
-touch /home/$(whoami)/.startupinfocommand
+./main 
 cat <<EOF > /home/$(whoami)/.startupinfocommand
 #!/bin/bash
 
@@ -11,25 +10,26 @@ echo "Options:"
 echo "  run       Run the script and show your info on startup"
 echo "  halt      Halt the script and prevent it from running on startup"
 echo "  remove    Remove this script and everything related to it"
-if [[ $1 = "-e" ]]; then
-  cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
+if [[ \$1 = "-e" ]]; then
+  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
-elif [[ $1 = "-p" ]]; then
-  cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
+elif [[ \$1 = "-p" ]]; then
+  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./halt
-elif [[ $1 = "-h" ]]; then
+elif [[ \$1 = "-h" ]]; then
   echo "startupinfo [OPTIONS]"
   echo "options:"
   echo "  -h; help"
   echo "  -r; run     Run the script and show your info on startup"
   echo "  -p; halt    Halt the script and prevent it from running on startup"
   echo "  -e; remove  Remove this script and everything related to it"
-elif [[ $1 = "-r" ]]; then
-  cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
+elif [[ \$1 = "-r" ]]; then
+  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./main
 fi
 EOF
+
 sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
 sudo chmod +x /bin/startupinfo
-sudo mv /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
+sudo cp /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
 sudo chmod +x /usr/bin/startupinfo
