@@ -5,11 +5,6 @@ sudo chmod +x remove
 ./main 
 cat <<EOF > /home/$(whoami)/.startupinfocommand
 #!/bin/bash
-
-echo "Options:"
-echo "  run       Run the script and show your info on startup"
-echo "  halt      Halt the script and prevent it from running on startup"
-echo "  remove    Remove this script and everything related to it"
 if [[ \$1 = "-e" ]]; then
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
@@ -28,7 +23,6 @@ elif [[ \$1 = "-r" ]]; then
   ./main
 fi
 EOF
-
 sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
 sudo chmod +x /bin/startupinfo
 sudo cp /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
