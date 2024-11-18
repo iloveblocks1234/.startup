@@ -27,3 +27,4 @@ sudo cp /home/$(whoami)/.startupinfocommand /bin/startupinfo
 sudo chmod +x /bin/startupinfo
 sudo cp /home/$(whoami)/.startupinfocommand /usr/bin/startupinfo
 sudo chmod +x /usr/bin/startupinfo
+echo "startupinfo -h for help"
