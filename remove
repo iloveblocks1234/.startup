@@ -4,8 +4,10 @@ while [ $a -gt 0 ]; do
   sed -i '$d' ~/.bashrc
   a=$((a-1))
 done
+echo "[Deleted info in ~/.bashrc]"
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
 sudo rm -rf /bin/startupinfo
 sudo rm -rf /usr/bin/startupinfo
 sudo rm -rf .startupinfo
+echo "[.startupinfo deleted]"
