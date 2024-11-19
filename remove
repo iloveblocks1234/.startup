@@ -1,9 +1,11 @@
 #!/bin/bash
-a=15
-while [ $a -gt 0 ]; do
-  sed -i '$d' ~/.bashrc
-  a=$((a-1))
-done
+if grep "Kernel Version:" ~/.bashrc; then
+  a=15
+  while [ $a -gt 0 ]; do
+    sed -i '$d' ~/.bashrc
+    a=$((a-1))
+  done
+fi
 echo "[Deleted info in ~/.bashrc]"
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
