@@ -1,5 +1,4 @@
 #!/bin/bash
-echo
 sudo chmod +x main
 sudo chmod +x halt
 sudo chmod +x remove
@@ -42,5 +41,4 @@ sudo chmod +x /usr/bin/startupinfo
 echo "[Command permissions updated]"
 sudo rm -rf /home/$(whoami)/.startupinfo/startupinfocommand
 echo "[Removed init files]"
-echo
 echo "'startupinfo -h' for help"
