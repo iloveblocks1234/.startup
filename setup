@@ -36,11 +36,11 @@ EOF
 echo "[Command file written]"
 sudo cp /home/$(whoami)/.startupinfo/startupinfocommand /bin/startupinfo
 sudo cp /home/$(whoami)/.startupinfo/startupinfocommand /usr/bin/startupinfo
-echo "[Command copied /bin and /usr/bin]"
+echo "[Command copied to /bin and /usr/bin]"
 sudo chmod +x /bin/startupinfo
 sudo chmod +x /usr/bin/startupinfo
 echo "[Command permissions updated]"
-sudo rm -rf \$(sudo find /home -type d -name "startupinfocommand" -print -quit)
+sudo rm -rf /home/$(whoami)/.startupinfo/startupinfocommand
 echo "[Removed init files]"
 echo
 echo "'startupinfo -h' for help"
