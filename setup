@@ -6,8 +6,10 @@ echo "[Permissions updated]"
 cat <<EOF > /home/$(whoami)/.startupinfo/startupinfocommand
 #!/bin/bash
 if [[ \$1 = "-r" ]]; then
-  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
-  ./remove
+  read -p "Are you sure (y/n): " conf
+  if [[ $conf="y" ]]; then
+    cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
+    ./remove
 elif [[ \$1 = "-d" ]]; then
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./halt
