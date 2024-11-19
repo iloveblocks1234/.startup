@@ -6,7 +6,7 @@ if grep "Kernel Version:" ~/.bashrc; then
     a=$((a-1))
   done
 fi
-echo "[Deleted info in ~/.bashrc]"
+echo "[Deleted command in ~/.bashrc]"
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
 sudo rm -rf /bin/startupinfo
