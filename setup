@@ -14,7 +14,8 @@ elif [[ \$1 = "-d" ]]; then
   if [ "\$a" = "1" ]; then
     cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
     ./halt
-    echo 'a=0' | sudo tee /home/\$(whoami)/.startupinfo/startupinfodata
+    sed -i '$d' /home/\$(whoami)/.startupinfo/startupinfodata
+    echo 'a=0' >> /home/\$(whoami)/.startupinfo/startupinfodata
   else
     echo "Startup info is not enabled yet"
   fi
@@ -29,7 +30,8 @@ elif [[ \$1 = "-e" ]]; then
   if [ "\$a" = "0" ]; then
     cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
     ./main
-    echo 'a=1' | sudo tee /home/\$(whoami)/.startupinfo/startupinfodata
+    sed -i '$d' /home/\$(whoami)/.startupinfo/startupinfodata
+    echo 'a=1' >> /home/\$(whoami)/.startupinfo/startupinfodata
   else
     echo "Startup info is already enabled"
   fi
