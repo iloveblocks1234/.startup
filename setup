@@ -3,19 +3,20 @@ sudo chmod +x main
 sudo chmod +x halt
 sudo chmod +x remove
 sudo touch /home/$(whoami)/.startupinfo/startupinfodata
-echo 'a=0' >> \$(sudo find /home -type d -name "startupinfodata" -print -quit)
-cat <<EOF > /home/$(whoami)/.startupinfo/.startupinfocommand
+echo 'a=0' | sudo tee /home/$(whoami)/.startupinfo/startupinfodata
+cat <<EOF | sudo tee /home/$(whoami)/.startupinfo/.startupinfocommand > /dev/null
 #!/bin/bash
+a=\$(cat /home/\$(whoami)/.startupinfo/startupinfodata)
 if [[ \$1 = "-r" ]]; then
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
 elif [[ \$1 = "-d" ]]; then
-  a=/$(cat \$(sudo find /home -type d -name "startupinfodata" -print -quit))
-  if [ /$a=1 ]; then
+  if [ "\$a" = "1" ]; then
     cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
     ./halt
-    sed -i '$d' \$(sudo find /home -type d -name "startupinfodata" -print -quit)
-    echo 'a=0' >> \$(sudo find /home -type d -name "startupinfodata" -print -quit)
+    echo 'a=0' | sudo tee /home/\$(whoami)/.startupinfo/startupinfodata
+  else
+    echo "Startup info is not enabled yet"
   fi
 elif [[ \$1 = "-h" ]]; then
   echo "startupinfo [OPTIONS]"
@@ -23,14 +24,14 @@ elif [[ \$1 = "-h" ]]; then
   echo "  -h; help"
   echo "  -e; enable     Run the script and show your info on startup"
   echo "  -d; disable    Halt the script and prevent it from running on startup"
-  echo "  -r; remove  Remove this script and everything related to it"
+  echo "  -r; remove     Remove this script and everything related to it"
 elif [[ \$1 = "-e" ]]; then
-  a=/$(cat \$(sudo find /home -type d -name "startupinfodata" -print -quit))
-  if [ /$a=0 ]; then
+  if [ "\$a" = "0" ]; then
     cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
     ./main
-    sed -i '$d' \$(sudo find /home -type d -name "startupinfodata" -print -quit)
-    echo 'a=1' >> \$(sudo find /home -type d -name "startupinfodata" -print -quit)
+    echo 'a=1' | sudo tee /home/\$(whoami)/.startupinfo/startupinfodata
+  else
+    echo "Startup info is already enabled"
   fi
 fi
 EOF
@@ -38,5 +39,4 @@ sudo cp /home/$(whoami)/.startupinfo/.startupinfocommand /bin/startupinfo
 sudo chmod +x /bin/startupinfo
 sudo cp /home/$(whoami)/.startupinfo/.startupinfocommand /usr/bin/startupinfo
 sudo chmod +x /usr/bin/startupinfo
-sudo rm -rf \$(sudo find /home -type d -name ".startupinfocommand" -print -quit)
 echo "startupinfo -h for help"
