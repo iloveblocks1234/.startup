@@ -1,8 +1,7 @@
 #!/bin/bash
-sudo mv /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
+sudo cp /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
 echo "[Restored ~/.bashrc]"
-cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
-cd ..
+cd /home/$(whoami)
 sudo rm -rf /bin/startupinfo
 sudo rm -rf /usr/bin/startupinfo
 sudo rm -rf .startupinfo
