@@ -2,11 +2,11 @@
 sudo chmod +x main
 sudo chmod +x remove
 echo "[Permissions updated]"
-sudo touch /home/\$(whoami)/.startupinfo/bashrc-backup
+sudo touch /home/$(whoami)/.startupinfo/bashrc-backup
 echo "[Backup file created]"
-sudo cp ~/.bashrc /home/\$(whoami)/.startupinfo/bashrc-backup
+sudo cp ~/.bashrc /home/$(whoami)/.startupinfo/bashrc-backup
 echo "[~./bashrc backup written]"
-cat <<EOF > /home/\$(whoami)/.startupinfo/startupinfocommand
+cat <<EOF > /home/$(whoami)/.startupinfo/startupinfocommand
 #!/bin/bash
 if [[ \$1 = "-r" ]]; then
   read -p "Are you sure (y/n): " conf
@@ -47,12 +47,12 @@ elif [[ \$1 = "-v" ]]; then
 fi
 EOF
 echo "[Command file written]"
-sudo cp /home/\$(whoami)/.startupinfo/startupinfocommand /bin/startupinfo
-sudo cp /home/\$(whoami)/.startupinfo/startupinfocommand /usr/bin/startupinfo
+sudo cp /home/$(whoami)/.startupinfo/startupinfocommand /bin/startupinfo
+sudo cp /home/$(whoami)/.startupinfo/startupinfocommand /usr/bin/startupinfo
 echo "[Command copied to /bin and /usr/bin]"
 sudo chmod +x /bin/startupinfo
 sudo chmod +x /usr/bin/startupinfo
 echo "[Command permissions updated]"
-sudo rm -rf /home/\$(whoami)/.startupinfo/startupinfocommand
+sudo rm -rf /home/$(whoami)/.startupinfo/startupinfocommand
 echo "[Removed init files]"
 echo "'startupinfo -h' for help"
