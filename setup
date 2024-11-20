@@ -1,6 +1,5 @@
 #!/bin/bash
 sudo chmod +x main
-sudo chmod +x halt
 sudo chmod +x remove
 echo "[Permissions updated]"
 sudo touch /home/$(whoami)/.startupinfo/bashrc-backup
