@@ -21,6 +21,7 @@ elif [[ \$1 = "-h" ]]; then
   echo "  -d; disable    Halt the script and prevent it from running on startup"
   echo "  -r; remove     Remove this script and everything related to it"
   echo "  -u; update     Updates .startupinfo to the newest version"
+  echo "  -v; version    Displays the version of .startupinfo"
 elif [[ \$1 = "-e" ]]; then
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./main
@@ -32,6 +33,13 @@ elif [[ \$1 = "-u" ]]; then
   cd .startupinfo
   sudo chmod +x setup
   ./setup
+elif [[ \$1 = "-v" ]]; then
+  echo "Versions:"
+  echo "  Version 1.0; Just the plain command"
+  echo "  Version 1.1; Added a remove function and a README"
+  echo "  Version 1.2; Added the command and fixed minor bugs"
+  echo "  ---------------------------------------------------"
+  echo "  Version 1.3; Improved safety fratures"
 fi
 EOF
 echo "[Command file written]"
