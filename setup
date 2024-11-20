@@ -3,6 +3,10 @@ sudo chmod +x main
 sudo chmod +x halt
 sudo chmod +x remove
 echo "[Permissions updated]"
+sudo touch /home/$(whoami)/.startupinfo/bashrc-backup
+echo "[Backup file created]"
+sudo cp ~/.bashrc /home/$(whoami)/.startupinfo/bashrc-backup
+echo "[~./bashrc backup written]"
 cat <<EOF > /home/$(whoami)/.startupinfo/startupinfocommand
 #!/bin/bash
 if [[ \$1 = "-r" ]]; then
