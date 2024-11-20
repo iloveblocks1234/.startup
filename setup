@@ -43,8 +43,9 @@ elif [[ \$1 = "-v" ]]; then
   echo "  Version 1.0; Just the plain command"
   echo "  Version 1.1; Added a remove function and a README"
   echo "  Version 1.2; Added the command and fixed minor bugs"
+  echo "  Version 1.3; Removed Halt file and replaced with a restore ~/.bashrc command"
   echo "  ___________________________________________________"
-  echo "  Dev version 1.3; Improved safety fratures"
+  echo "  Dev version 1.4; Improved safety fratures"
 elif [[ \$1 = "-b" ]]; then
   sudo cp /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
   echo "[Restoration complete]"
