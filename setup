@@ -38,15 +38,23 @@ elif [[ \$1 = "-u" ]]; then
   ./setup
 elif [[ \$1 = "-v" ]]; then
   echo "Versions:"
-  echo "  Version 1.0; Just the plain command"
-  echo "  Version 1.1; Added a remove function and a README"
-  echo "  Version 1.2.0; Added the command and fixed minor bugs"
-  echo "  Version 1.2.1; Fixed the broken v1.2.0"
-  echo "  Version 1.3; Removed Halt file and replaced with a restore ~/.bashrc command"
-  echo "  ___________________________________________________"
-  echo "  Dev version 1.4; Improved safety fratures"
+  echo "  Version 1.0.0; Just the plain command"
+  echo "  Version 1.0.1; Added a remove function and a README"
+  echo "  Version 1.0.2; Added the command and fixed minor bugs"
+  echo "  Version 1.0.3; Fixed the broken v1.1.2"
+  echo "  Version 1.0.4; Removed Halt file and replaced with a restore ~/.bashrc command"
+  echo "  Dev Version 1.0.5; Improved safety fratures"
+  echo "  ___________________________________________"
+  echo "  Dev version 1.1.0; Condenced everything into two files"
 else
-  startupinfo -h
+  echo "startup [OPTIONS]"
+  echo "options:"
+  echo "  -h; help"
+  echo "  -e; enable     Run the script and show your info on startup"
+  echo "  -d; disable    Halt the script and prevent it from running on startup"
+  echo "  -r; remove     Remove this script and everything related to it"
+  echo "  -u; update     Updates .startup to the newest version"
+  echo "  -v; version    Displays the version of .startup"
 fi
 EOF
 echo "[Command file written]"
