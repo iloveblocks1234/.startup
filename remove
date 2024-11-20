@@ -1,11 +1,5 @@
 #!/bin/bash
-if grep "Kernel Version:" ~/.bashrc; then
-  a=15
-  while [ $a -gt 0 ]; do
-    sed -i '$d' ~/.bashrc
-    a=$((a-1))
-  done
-fi
+mv /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
 echo "[Deleted command in ~/.bashrc]"
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
