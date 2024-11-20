@@ -26,7 +26,15 @@ echo 'echo "Kernel Release: $(uname -r)"'
 echo "[Finished writing to ~/.bashrc]"
 EOF
 cat <<EOF > /home/$(whoami)/.startup/remove
-
+#!/bin/bash
+sudo cp /home/$(whoami)/.startup/bashrc-backup ~/.bashrc
+echo "[Restored ~/.bashrc]"
+cd /home/$(whoami)
+sudo rm -rf /bin/startup
+sudo rm -rf /usr/bin/startup
+sudo rm -rf .startup
+echo "[.startup deleted]"
+EOF
 sudo chmod +x main
 sudo chmod +x remove
 echo "[Permissions updated]"
