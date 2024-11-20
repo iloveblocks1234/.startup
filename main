@@ -8,7 +8,7 @@ clear
 echo "\$i"
 while [ \$length -gt 0 ]; do
   after+=-
-  length=\$((length-1))
+  length=$((length-1))
 done
 echo "\$after"
 echo "OS:             \$(uname -o)"
