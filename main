@@ -1,5 +1,4 @@
 #!/bin/bash
-chmod u+w ~/.bashrc
 {
 echo
 echo 'i="$(whoami)@$(uname -n)"'
