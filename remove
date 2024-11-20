@@ -1,8 +1,0 @@
-#!/bin/bash
-sudo cp /home/$(whoami)/.startup/bashrc-backup ~/.bashrc
-echo "[Restored ~/.bashrc]"
-cd /home/$(whoami)
-sudo rm -rf /bin/startup
-sudo rm -rf /usr/bin/startup
-sudo rm -rf .startup
-echo "[.startup deleted]"
