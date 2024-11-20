@@ -1,5 +1,5 @@
 #!/bin/bash
-{
+sudo cat <<EOF > ~/.bashrc
 echo ''
 echo 'i="$(whoami)@$(uname -n)"'
 echo 'length=${#i}'
@@ -17,4 +17,4 @@ echo 'echo "Hardware Info:  $(uname -m)"'
 echo 'echo "Kernel Name:    $(uname)"'
 echo 'echo "Kernel Version: $(uname -v)"'
 echo 'echo "Kernel Release: $(uname -r)"'
-} >> ~/.bashrc
+EOF
