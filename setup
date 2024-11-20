@@ -11,11 +11,11 @@ cat <<EOF > /home/$(whoami)/.startupinfo/startupinfocommand
 if [[ \$1 = "-r" ]]; then
   read -p "Are you sure (y/n): " conf
   if [[ \$conf == "y" ]]; then
-    cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
+    cd /home/$(whoami)/.startupinfo
     ./remove
   fi
 elif [[ \$1 = "-d" ]]; then
-  cp /home/\$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
+  cp /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
 elif [[ \$1 = "-h" ]]; then
   echo "startupinfo [OPTIONS]"
   echo "options:"
@@ -26,7 +26,7 @@ elif [[ \$1 = "-h" ]]; then
   echo "  -u; update     Updates .startupinfo to the newest version"
   echo "  -v; version    Displays the version of .startupinfo"
 elif [[ \$1 = "-e" ]]; then
-  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
+  cd /home/$(whoami)/.startupinfo
   sudo ./main
 elif [[ \$1 = "-u" ]]; then 
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
