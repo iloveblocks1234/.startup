@@ -16,8 +16,7 @@ if [[ \$1 = "-r" ]]; then
     ./remove
   fi
 elif [[ \$1 = "-d" ]]; then
-  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
-  ./halt
+  cp /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
 elif [[ \$1 = "-h" ]]; then
   echo "startupinfo [OPTIONS]"
   echo "options:"
