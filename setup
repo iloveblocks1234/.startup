@@ -39,8 +39,8 @@ elif [[ \$1 = "-v" ]]; then
   echo "  Version 1.0; Just the plain command"
   echo "  Version 1.1; Added a remove function and a README"
   echo "  Version 1.2; Added the command and fixed minor bugs"
-  echo "  ---------------------------------------------------"
-  echo "  Version 1.3; Improved safety fratures"
+  echo "  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+  echo "  Dev version 1.3; Improved safety fratures"
 fi
 EOF
 echo "[Command file written]"
