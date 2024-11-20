@@ -2,38 +2,38 @@
 sudo chmod +x main
 sudo chmod +x remove
 echo "[Permissions updated]"
-sudo touch /home/$(whoami)/.startupinfo/bashrc-backup
+sudo touch /home/$(whoami)/.startup/bashrc-backup
 echo "[Backup file created]"
-sudo cp ~/.bashrc /home/$(whoami)/.startupinfo/bashrc-backup
+sudo cp ~/.bashrc /home/$(whoami)/.startup/bashrc-backup
 echo "[~./bashrc backup written]"
-cat <<EOF > /home/$(whoami)/.startupinfo/startupinfocommand
+cat <<EOF > /home/$(whoami)/.startup/startupcommand
 #!/bin/bash
 if [[ \$1 = "-r" ]]; then
   read -p "Are you sure (y/n): " conf
   if [[ \$conf == "y" ]]; then
-    cd /home/$(whoami)/.startupinfo
+    cd /home/$(whoami)/.startup
     ./remove
   fi
 elif [[ \$1 = "-d" ]]; then
-  cp /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
+  cp /home/$(whoami)/.startup/bashrc-backup ~/.bashrc
 elif [[ \$1 = "-h" ]]; then
-  echo "startupinfo [OPTIONS]"
+  echo "startup [OPTIONS]"
   echo "options:"
   echo "  -h; help"
   echo "  -e; enable     Run the script and show your info on startup"
   echo "  -d; disable    Halt the script and prevent it from running on startup"
   echo "  -r; remove     Remove this script and everything related to it"
-  echo "  -u; update     Updates .startupinfo to the newest version"
-  echo "  -v; version    Displays the version of .startupinfo"
+  echo "  -u; update     Updates .startup to the newest version"
+  echo "  -v; version    Displays the version of .startup"
 elif [[ \$1 = "-e" ]]; then
-  cd /home/$(whoami)/.startupinfo
+  cd /home/$(whoami)/.startup
   ./main
 elif [[ \$1 = "-u" ]]; then 
-  cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
+  cd \$(sudo find /home -type d -name ".startup" -print -quit)
   ./remove
   cd /home/\$(whoami)
-  git clone https://github.com/iloveblocks1234/.startupinfo.git
-  cd .startupinfo
+  git clone https://github.com/iloveblocks1234/.startup.git
+  cd .startup
   sudo chmod +x setup
   ./setup
 elif [[ \$1 = "-v" ]]; then
@@ -48,12 +48,12 @@ elif [[ \$1 = "-v" ]]; then
 fi
 EOF
 echo "[Command file written]"
-sudo cp /home/$(whoami)/.startupinfo/startupinfocommand /bin/startupinfo
-sudo cp /home/$(whoami)/.startupinfo/startupinfocommand /usr/bin/startupinfo
+sudo cp /home/$(whoami)/.startup/startupcommand /bin/startup
+sudo cp /home/$(whoami)/.startup/startupcommand /usr/bin/startup
 echo "[Command copied to /bin and /usr/bin]"
-sudo chmod +x /bin/startupinfo
-sudo chmod +x /usr/bin/startupinfo
+sudo chmod +x /bin/startup
+sudo chmod +x /usr/bin/startup
 echo "[Command permissions updated]"
-sudo rm -rf /home/$(whoami)/.startupinfo/startupinfocommand
+sudo rm -rf /home/$(whoami)/.startup/startupcommand
 echo "[Removed init files]"
-echo "'startupinfo -h' for help"
+echo "'startup -h' for help"
