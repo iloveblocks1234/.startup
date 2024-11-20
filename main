@@ -1,6 +1,6 @@
 #!/bin/bash
 {
-echo ''
+echo
 echo 'i="$(whoami)@$(uname -n)"'
 echo 'length=${#i}'
 echo 'after=""'
