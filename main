@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "[Writing...]"
 {
 echo
 echo 'i="$(whoami)@$(uname -n)"'
@@ -18,3 +19,4 @@ echo 'echo "Kernel Name:    $(uname)"'
 echo 'echo "Kernel Version: $(uname -v)"'
 echo 'echo "Kernel Release: $(uname -r)"'
 } >> ~/.bashrc
+echo "[Finished writing to ~/.bashrc]"
