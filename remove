@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo mv /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
-echo "[Deleted command in ~/.bashrc]"
+echo "[Restored ~/.bashrc]"
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
 sudo rm -rf /bin/startupinfo
