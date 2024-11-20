@@ -1,5 +1,5 @@
 #!/bin/bash
-mv /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
+sudo mv /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
 echo "[Deleted command in ~/.bashrc]"
 cd $(sudo find /home -type d -name ".startupinfo" -print -quit)
 cd ..
