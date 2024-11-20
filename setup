@@ -27,7 +27,7 @@ elif [[ \$1 = "-h" ]]; then
   echo "  -v; version    Displays the version of .startupinfo"
 elif [[ \$1 = "-e" ]]; then
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
-  ./main
+  sudo ./main
 elif [[ \$1 = "-u" ]]; then 
   cd \$(sudo find /home -type d -name ".startupinfo" -print -quit)
   ./remove
