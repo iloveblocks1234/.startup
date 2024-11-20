@@ -47,7 +47,7 @@ elif [[ \$1 = "-v" ]]; then
   echo "  ___________________________________________________"
   echo "  Dev version 1.3; Improved safety fratures"
 elif [[ \$1 = "-b" ]]; then
-  sudo cp /home/$(whoami)/.startupinfo/bashrc-backup
+  sudo cp /home/$(whoami)/.startupinfo/bashrc-backup ~/.bashrc
   echo "[Restoration complete]"
 fi
 EOF
