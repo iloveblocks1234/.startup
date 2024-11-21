@@ -98,9 +98,9 @@ elif [[ \$1 = "-v" ]]; then
   echo "  Version 1.0.3; Fixed the broken v1.1.2"
   echo "  Version 1.0.4; Removed Halt file and replaced with a restore ~/.bashrc command"
   echo "  Dev Version 1.0.5; Improved safety fratures"
-  echo "  Version 1.1.0; Condenced everything into two files""
+  echo "  Version 1.1.0; Condenced everything into two files"
   echo "  ___________________________________________"
-  echo "  version 1.1.1; "
+  echo "  Dev version 1.1.1"
 else
   echo "startup [OPTIONS]"
   echo "options:"
