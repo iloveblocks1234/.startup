@@ -5,7 +5,7 @@ echo "[Writing...]"
 {
 echo
 echo 'i="$(whoami)@$(uname -n)"'
-echo 'length=${#i}'
+echo 'length=\${#i}'
 echo 'after=""'
 echo 'clear'
 echo 'echo $i'
