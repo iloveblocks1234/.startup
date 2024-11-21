@@ -1,7 +1,6 @@
 #!/bin/bash
 cat <<EOF > /home/$(whoami)/.startup/main
 #!/bin/bash
-echo "[Writing...]"
 {
 echo
 echo 'i="$(whoami)@$(uname -n)"'
@@ -20,11 +19,11 @@ echo 'echo "Uptime:         $(( $(printf "%.0f" $(awk '{print $1}' /proc/uptime)
 echo 'echo "Kernel Name:    $(uname)"'
 echo 'echo "Kernel Version: $(uname -v)"'
 echo 'echo "Kernel Release: $(uname -r)"'
+echo 'echo ""'
 echo 'cd /home/$(whoami)/.startup'
 echo 'sudo cp bashrc-backup ~/.bashrc'
 echo './main'
 } >> ~/.bashrc
-echo "[Finished writing to ~/.bashrc]"
 EOF
 cat <<EOF > /home/$(whoami)/.startup/remove
 #!/bin/bash
