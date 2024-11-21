@@ -1,8 +1,8 @@
 #!/bin/bash
 sudo touch /home/$(whoami)/.startup/main
 sudo touch /home/$(whoami)/.startup/remove
-chmod u+w /home/$(whoami)/.startup/main
-chmod u+w /home/$(whoami)/.startup/remove
+sudo chmod u+w /home/$(whoami)/.startup/main
+sudo chmod u+w /home/$(whoami)/.startup/remove
 cat <<EOF > /home/$(whoami)/.startup/main
 #!/bin/bash
 echo "[Writing...]"
