@@ -1,8 +1,4 @@
 #!/bin/bash
-# sudo touch /home/$(whoami)/.startup/main
-# sudo touch /home/$(whoami)/.startup/remove
-# sudo chmod u+w /home/$(whoami)/.startup/main
-# sudo chmod u+w /home/$(whoami)/.startup/remove
 cat <<EOF > /home/$(whoami)/.startup/main
 #!/bin/bash
 echo "[Writing...]"
@@ -17,7 +13,7 @@ echo 'while [ \$length -gt 0 ]; do'
 echo '  after+=-'
 echo '  length=$((length-1))'
 echo 'done'
-echo 'echo $after'
+echo 'echo \$after'
 echo 'echo "OS:             $(uname -o)"'
 echo 'echo "Processor:      $(uname -p)"'
 echo 'echo "Hardware Info:  $(uname -m)"'
