@@ -70,15 +70,23 @@ if [[ \$1 = "-r" ]]; then
   fi
 elif [[ \$1 = "-d" ]]; then
   cp /home/$(whoami)/.startup/bashrc-backup ~/.bashrc
+elif [[ \S1 = "-s" ]]; then
+  echo "Options:"
+  echo "  ae;  Enable auto sudo password enter"
+  echo "  ad;  Disable auto sudo password enter"
+  read -p "Command: " settingscommands
+  if [[ \$settingscommands = "ae" ]]; then
+    read -p "[Sudo] Password: " sudopassword
 elif [[ \$1 = "-h" ]]; then
   echo "startup [OPTIONS]"
-  echo "options:"
+  echo "Options:"
   echo "  -h; help"
   echo "  -e; enable     Run the script and show your info on startup"
   echo "  -d; disable    Halt the script and prevent it from running on startup"
   echo "  -r; remove     Remove this script and everything related to it"
   echo "  -u; update     Updates .startup to the newest version"
   echo "  -v; version    Displays the version of .startup"
+  echo "  -s; settings   Opens the settings page and the settings help page"
 elif [[ \$1 = "-e" ]]; then
   cd /home/$(whoami)/.startup
   ./main
@@ -110,6 +118,7 @@ else
   echo "  -r; remove     Remove this script and everything related to it"
   echo "  -u; update     Updates .startup to the newest version"
   echo "  -v; version    Displays the version of .startup"
+  echo "  -s; settings   Opens the settings page and the settings help page"
 fi
 EOF
 echo "[Command file written]"
