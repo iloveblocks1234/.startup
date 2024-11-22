@@ -86,7 +86,7 @@ elif [[ \$1 = "-h" ]]; then
   echo "  -r; remove     Remove this script and everything related to it"
   echo "  -u; update     Updates .startup to the newest version"
   echo "  -v; version    Displays the version of .startup"
-  echo "  -s; settings   Opens the settings page and the settings help page"
+  echo "  -s; settings   Opens the settings page and the settings help page [BETA (nonworking)]"
 elif [[ \$1 = "-e" ]]; then
   cd /home/$(whoami)/.startup
   ./main
@@ -118,7 +118,7 @@ else
   echo "  -r; remove     Remove this script and everything related to it"
   echo "  -u; update     Updates .startup to the newest version"
   echo "  -v; version    Displays the version of .startup"
-  echo "  -s; settings   Opens the settings page and the settings help page"
+  echo "  -s; settings   Opens the settings page and the settings help page [BETA (nonworking)]"
 fi
 EOF
 echo "[Command file written]"
