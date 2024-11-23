@@ -78,6 +78,7 @@ elif [[ \S1 = "-s" ]]; then
   read -p "Command: " settingscommands
   if [[ \$settingscommands = "ae" ]]; then
     read -p "[Sudo] Password: " sudopassword
+  fi
 elif [[ \$1 = "-h" ]]; then
   echo "startup [OPTIONS]"
   echo "Options:"
