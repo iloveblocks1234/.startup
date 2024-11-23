@@ -21,7 +21,6 @@ echo 'echo "Cpu Speed:      $(grep 'cpu MHz' /proc/cpuinfo | sed 's/cpu MHz[[:sp
 echo 'echo "Kernel Name:    $(uname)"'
 echo 'echo "Kernel Version: $(uname -v)"'
 echo 'echo "Kernel Release: $(uname -r)"'
-
 echo 'cd /home/$(whoami)'
 } >> ~/.bashrc
 EOF
